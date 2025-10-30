@@ -71,4 +71,23 @@ export class AppComponent {
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
+
+  @HostListener('window:beforeprint', [])
+  onBeforePrint() {
+    const panels = document.querySelectorAll('mat-expansion-panel');
+    panels.forEach((panel: any) => {
+      if (panel.hasAttribute('aria-expanded')) {
+        panel.setAttribute('aria-expanded', 'true');
+      }
+
+      const content = panel.querySelector('.mat-expansion-panel-content');
+      if (content) {
+        content.style.display = 'block';
+        content.style.visibility = 'visible';
+        content.style.height = 'auto';
+        content.style.overflow = 'visible';
+        content.style.opacity = '1';
+      }
+    });
+  }
 }

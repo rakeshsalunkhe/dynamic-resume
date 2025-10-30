@@ -98,9 +98,10 @@ body, app-root {
 }
 
 /* ================================
-   🖨️ PRINT-OPTIMIZED STYLES
+   🖨️ PRINT-OPTIMIZED STYLES (NO BLANK PAGES)
    ================================ */
 @media print {
+  /* Hide UI elements */
   mat-toolbar,
   .sticky-toolbar,
   .mobile-menu,
@@ -111,56 +112,88 @@ body, app-root {
     display: none !important;
   }
 
-  body, app-root {
-    background: #fff !important;
-    padding-top: 0 !important;
+  /* Base layout cleanup */
+  html, body {
+    background: #ffffff !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    zoom: 0.95;
     margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  app-root {
+    background: #ffffff !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    box-shadow: none !important;
   }
 
   section {
-    padding: 8px 24px !important;
-    margin-top: 0 !important;
-    background: white !important;
+    background: #ffffff !important;
+    padding: 12px 28px !important;
+    margin: 0 auto !important;
   }
 
   mat-card,
   mat-expansion-panel {
+    background: #ffffff !important;
     box-shadow: none !important;
     border: none !important;
-    margin: 6px 0 !important;
-    background: white !important;
+    margin: 8px 0 !important;
+    overflow: visible !important;
+    break-inside: auto !important;   /* ✅ Allow normal page breaks */
+    page-break-inside: auto !important;
   }
 
-  /* ✅ Force all expansion panels open when printing */
+  /* ✅ Force all collapsible panels to expand */
   mat-expansion-panel,
-  mat-expansion-panel:not([expanded]) {
-    display: block !important;
-    height: auto !important;
+  mat-expansion-panel[ng-reflect-expanded="false"],
+  mat-expansion-panel[aria-expanded="false"] {
     overflow: visible !important;
-  }
-
-  mat-expansion-panel-header {
-    display: none !important; /* hide header toggle arrows */
-  }
-
-  .mat-expansion-panel-content,
-  .mat-expansion-panel-body {
-    display: block !important;
     height: auto !important;
+  }
+
+  ::ng-deep .mat-expansion-panel-content,
+  ::ng-deep .mat-expansion-panel-body,
+  mat-expansion-panel .mat-expansion-panel-content,
+  mat-expansion-panel .mat-expansion-panel-body {
+    display: block !important;
     visibility: visible !important;
+    height: auto !important;
     overflow: visible !important;
-    padding: 0 !important;
+    opacity: 1 !important;
   }
 
+  /* Hide expansion arrows */
+  mat-expansion-panel-header .mat-expansion-indicator {
+    display: none !important;
+  }
+
+  /* General text tweaks */
   p, li {
     margin: 2px 0 !important;
     line-height: 1.3;
   }
 
-  html, body {
-    zoom: 0.95;
+  /* Remove unwanted page borders and shadows */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* ✅ Let the browser freely split large sections across pages */
+  section, mat-card, mat-expansion-panel {
+    page-break-before: auto !important;
+    page-break-after: auto !important;
+    break-before: auto !important;
+    break-after: auto !important;
   }
 }
+
+
 
 /* ================================
    📱 RESPONSIVE & MOBILE FIXES
