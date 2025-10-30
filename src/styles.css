@@ -1,171 +1,133 @@
-/* Global font + background */
+/* ================================
+   🌐 GLOBAL STYLES & BASE LAYOUT
+   ================================ */
 html, body {
   height: auto;
   margin: 0;
   font-family: 'Poppins', 'Roboto', sans-serif;
   background: linear-gradient(180deg, #f6f8fb 0%, #2b8777 100%);
   color: #1a1a1a;
+  overflow-x: hidden;
 }
 
-/* Root app spacing */
 app-root {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 36px 20px;
+  box-sizing: border-box;
 }
 
-/* Card visual tweak: white paper effect */
-mat-card {
+/* Card styling */
+mat-card, mat-expansion-panel {
   background: #ffffff;
   border-radius: 12px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
-  margin-bottom: 18px;
+  margin: 12px auto;
+  padding: 16px;
   transition: transform 220ms ease, box-shadow 220ms ease;
+  width: 100%;
+  max-width: 840px;
+  box-sizing: border-box;
 }
 
-/* Lift on hover */
-mat-card:hover {
+mat-card:hover, mat-expansion-panel:hover {
   transform: translateY(-6px);
   box-shadow: 0 16px 36px rgba(15, 23, 42, 0.10);
 }
 
-/* Expansion wrapper tweak */
-mat-expansion-panel {
-  border-radius: 12px !important;
-}
-
-/* Accent color for section titles */
+/* Headings and links */
 mat-panel-title, mat-card-title {
   color: #0d47a1;
   font-weight: 600;
 }
-
-/* Link color */
 a {
   color: #1565c0;
 }
 
-/* Make the main content container width-limited */
+/* Section layout */
 section {
   width: 100%;
   max-width: 840px;
+  box-sizing: border-box;
 }
 
-/* Floating Sticky toolbar */
+/* ================================
+   🧭 FIXED TOOLBAR & ICON ACTIONS
+   ================================ */
 .sticky-toolbar {
-  position: sticky;
-  top: 8px;
-  z-index: 1100;
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto 18px;
-  border-radius: 10px;
-}
-
-button[mat-fab].scroll-top {
-  background: linear-gradient(135deg,#1976d2,#42a5f5);
-  color: #fff;
-}
-
-section[id] {
-  scroll-margin-top: 100px; /* height of sticky toolbar + extra padding */
-}
-
-/* Floating Scroll-to-Top Button */
-.scroll-top {
-  position: fixed;
-  right: 24px;
-  bottom: 90px;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1200;
-  background: linear-gradient(135deg, #1976d2, #42a5f5);
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  opacity: 0;
-  pointer-events: none;
+  width: 100%;
+  border-radius: 0;
+  margin: 0;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.scroll-top.visible {
-  opacity: 1;
-  pointer-events: all;
+/* Add space so content doesn't go under toolbar */
+body, app-root {
+  padding-top: 70px !important;
 }
 
-.scroll-top:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
+/* Toolbar action icons (scroll & print) */
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* ==========================================
-   🖨️ PRINT-OPTIMIZED RESUME STYLES
-   ========================================== */
-/* ==========================================
-   🖨️ PRINT-OPTIMIZED RESUME STYLES (v2)
-   ========================================== */
+.toolbar-scroll-top,
+.print-btn {
+  color: #000;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.toolbar-scroll-top:hover,
+.print-btn:hover {
+  color: #1976d2;
+  transform: scale(1.15);
+}
+
+/* ================================
+   🖨️ PRINT-OPTIMIZED STYLES
+   ================================ */
 @media print {
   mat-toolbar,
   .sticky-toolbar,
-  .scroll-top,
+  .mobile-menu,
+  .menu-toggle,
+  .toolbar-scroll-top,
   .print-btn,
-  .copy-icon {
+  .copy-btn {
     display: none !important;
   }
 
-  body {
+  body, app-root {
     background: #fff !important;
-    margin: 0;
-    font-size: 12pt;
-    color: #000;
-    -webkit-print-color-adjust: exact;
-    color-adjust: exact;
+    padding-top: 0 !important; /* ✅ Remove top gap while printing */
+    margin-top: 0 !important;
   }
 
   section {
-    margin: 0;
-    padding: 12px 28px;
+    padding: 8px 24px !important;
+    margin-top: 0 !important;
     background: white !important;
-  }
-
-  /* Section page flow */
-  #personal-info,
-  #objective,
-  #skills {
-    page-break-after: avoid;
-  }
-
-  #experience {
-    page-break-before: always;
-    page-break-after: avoid;
-  }
-
-  #projects {
-    page-break-before: always;
-    page-break-after: avoid;
-  }
-
-  #education {
-    page-break-before: always;
-    page-break-after: avoid;
-  }
-
-  #additional-info {
-    page-break-before: avoid;
-  }
-
-  /* Make project items continuous */
-  .project-card {
-    page-break-inside: avoid;
-    break-inside: avoid;
-    margin-bottom: 6px !important;
   }
 
   mat-card,
   mat-expansion-panel {
     box-shadow: none !important;
     border: none !important;
-    margin: 4px 0 !important;
-    page-break-inside: auto !important;
-    break-inside: auto !important;
+    margin: 6px 0 !important;
     background: white !important;
   }
 
@@ -175,12 +137,159 @@ section[id] {
   }
 
   html, body {
-    zoom: 0.9;
-  }
-
-    .copy-btn {
-    display: none !important;
+    zoom: 0.95;
   }
 }
 
+/* ================================
+   📱 RESPONSIVE & MOBILE FIXES
+   ================================ */
+@media (max-width: 1024px) {
+  mat-card, mat-expansion-panel, section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 8px auto !important;
+    padding: 12px !important;
+    box-sizing: border-box !important;
+  }
 
+  #personal-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  #personal-info img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+  }
+
+  h2, h3, h4, p, a {
+    word-break: break-word;
+  }
+
+  /* Mobile toolbar adjustments */
+  .sticky-toolbar {
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Fixed mobile dropdown menu */
+  .mobile-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    z-index: 1100;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.25s ease-in-out;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    border-radius: 0 0 8px 8px;
+  }
+
+  .mobile-menu button {
+    text-align: left;
+    justify-content: flex-start;
+    font-size: 14px;
+    padding: 8px 12px;
+    color: #0d47a1;
+  }
+
+  .mobile-menu button:hover {
+    background: #e3f2fd;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Uniform section sizing */
+  #education,
+  #additional-info,
+  #projects,
+  .project-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    margin: 8px auto !important;
+  }
+
+  #education * ,
+  #additional-info * {
+    max-width: 100% !important;
+    overflow-wrap: break-word;
+  }
+}
+
+/* ================================
+   🍔 HAMBURGER & NAV VISIBILITY FIX
+   ================================ */
+
+/* Default — Desktop */
+.menu-toggle {
+  display: none !important;
+}
+.desktop-nav {
+  display: flex !important;
+}
+
+/* Mobile (≤768px): show hamburger, hide desktop nav */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex !important;
+    color: #000;
+    margin-right: 8px;
+  }
+  .desktop-nav {
+    display: none !important;
+  }
+
+  /* Keep scroll and print icons visible on mobile */
+  .toolbar-actions {
+    margin-left: auto;
+  }
+}
+
+/* Tablet (769–1024px): hide hamburger, show full nav */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex !important;
+  }
+}
+
+/* ================================
+   ✅ TABLET ENHANCEMENTS
+   ================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  mat-card, mat-expansion-panel {
+    padding: 16px;
+    margin: 12px auto;
+    max-width: 95%;
+  }
+
+  #personal-info img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
+}

@@ -1,0 +1,50 @@
+<!-- ✅ Sticky Toolbar (always visible at top) -->
+<mat-toolbar class="sticky-toolbar" color="primary">
+  <!-- Hamburger menu (mobile only) -->
+  <button mat-icon-button class="menu-toggle" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <!-- Desktop navigation -->
+  <div class="nav-links desktop-nav">
+    <button mat-button (click)="scrollTo('personal')">Personal</button>
+    <button mat-button (click)="scrollTo('objective')">Objective</button>
+    <button mat-button (click)="scrollTo('skills')">Skills</button>
+    <button mat-button (click)="scrollTo('experience')">Experience</button>
+    <button mat-button (click)="scrollTo('projects')">Projects</button>
+    <button mat-button (click)="scrollTo('education')">Education</button>
+    <button mat-button (click)="scrollTo('additional')">More</button>
+  </div>
+   <div class="toolbar-actions">
+    <!-- ✅ Scroll-to-top as inline icon -->
+    <button mat-icon-button class="toolbar-scroll-top" (click)="scrollToTop()">
+      <mat-icon>arrow_upward</mat-icon>
+    </button>
+    <!-- Print button (always visible) -->
+    <button mat-icon-button class="print-btn" (click)="printResume()">
+        <mat-icon>print</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<!-- ✅ Mobile Menu (slides below toolbar) -->
+<div class="mobile-menu" *ngIf="menuOpen">
+  <button mat-button (click)="scrollTo('personal'); toggleMenu()">Personal</button>
+  <button mat-button (click)="scrollTo('objective'); toggleMenu()">Objective</button>
+  <button mat-button (click)="scrollTo('skills'); toggleMenu()">Skills</button>
+  <button mat-button (click)="scrollTo('experience'); toggleMenu()">Experience</button>
+  <button mat-button (click)="scrollTo('projects'); toggleMenu()">Projects</button>
+  <button mat-button (click)="scrollTo('education'); toggleMenu()">Education</button>
+  <button mat-button (click)="scrollTo('additional'); toggleMenu()">More</button>
+</div>
+
+
+
+<!-- ✅ Resume Sections -->
+<app-personal-info></app-personal-info>
+<app-objective></app-objective>
+<app-skills></app-skills>
+<app-experience></app-experience>
+<app-projects></app-projects>
+<app-education></app-education>
+<app-additional-info></app-additional-info>
