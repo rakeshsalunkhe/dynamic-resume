@@ -73,7 +73,7 @@ section {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Add space so content doesn't go under toolbar */
+/* Prevent overlap with toolbar */
 body, app-root {
   padding-top: 70px !important;
 }
@@ -113,8 +113,8 @@ body, app-root {
 
   body, app-root {
     background: #fff !important;
-    padding-top: 0 !important; /* ✅ Remove top gap while printing */
-    margin-top: 0 !important;
+    padding-top: 0 !important;
+    margin: 0 !important;
   }
 
   section {
@@ -129,6 +129,27 @@ body, app-root {
     border: none !important;
     margin: 6px 0 !important;
     background: white !important;
+  }
+
+  /* ✅ Force all expansion panels open when printing */
+  mat-expansion-panel,
+  mat-expansion-panel:not([expanded]) {
+    display: block !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  mat-expansion-panel-header {
+    display: none !important; /* hide header toggle arrows */
+  }
+
+  .mat-expansion-panel-content,
+  .mat-expansion-panel-body {
+    display: block !important;
+    height: auto !important;
+    visibility: visible !important;
+    overflow: visible !important;
+    padding: 0 !important;
   }
 
   p, li {
@@ -178,13 +199,11 @@ body, app-root {
     word-break: break-word;
   }
 
-  /* Mobile toolbar adjustments */
   .sticky-toolbar {
     background: #fff;
     border-bottom: 1px solid #ccc;
   }
 
-  /* Fixed mobile dropdown menu */
   .mobile-menu {
     position: fixed;
     top: 64px;
@@ -217,7 +236,6 @@ body, app-root {
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Uniform section sizing */
   #education,
   #additional-info,
   #projects,
@@ -228,7 +246,7 @@ body, app-root {
     margin: 8px auto !important;
   }
 
-  #education * ,
+  #education *,
   #additional-info * {
     max-width: 100% !important;
     overflow-wrap: break-word;
@@ -258,7 +276,6 @@ body, app-root {
     display: none !important;
   }
 
-  /* Keep scroll and print icons visible on mobile */
   .toolbar-actions {
     margin-left: auto;
   }
