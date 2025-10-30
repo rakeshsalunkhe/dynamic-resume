@@ -1,0 +1,28 @@
+<section id="projects" *ngIf="projects.length > 0">
+  <mat-card class="projects-wrapper">
+    <mat-card-title class="projects-heading">Projects</mat-card-title>
+
+    <div class="projects-container">
+      <div class="project-item" *ngFor="let project of projects">
+        <mat-card class="project-card">
+          <mat-card-content>
+            <h3 class="project-title">{{ project.Name }}</h3>
+            <p><strong>Role:</strong> {{ project.Role }}</p>
+            <p><strong>Duration:</strong> {{ project.Duration }}</p>
+            <p><strong>Team Size:</strong> {{ project.TeamSize }}</p>
+            <p class="description">{{ project.Description }}</p>
+
+            <div class="tech-section" *ngIf="project.Technology?.length">
+              <h4>Technologies Used:</h4>
+              <div class="tech-container">
+                <div class="tech-box" *ngFor="let tech of project.Technology">
+                  {{ tech }}
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </mat-card>
+</section>

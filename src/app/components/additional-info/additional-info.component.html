@@ -1,0 +1,40 @@
+<section id="additional" [@zoomOnHover]="hoverState"
+  (mouseenter)="hoverState='hover'"
+  (mouseleave)="hoverState='normal'" *ngIf="additionalInfo && (additionalInfo.Address || additionalInfo.Languages?.length)">
+  <mat-expansion-panel [expanded]="isExpanded" class="additional-wrapper">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Additional Information</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-card class="additional-card">
+      <mat-card-content>
+        <!-- Address -->
+        <div *ngIf="additionalInfo.Address" class="info-section">
+          <h4>Address</h4>
+          <p>{{ additionalInfo.Address }}</p>
+        </div>
+
+        <!-- Languages -->
+        <div *ngIf="additionalInfo.Languages?.length" class="info-section">
+          <h4>Languages Known</h4>
+          <div class="language-container">
+            <div class="language-box" *ngFor="let lang of additionalInfo.Languages">
+              {{ lang }}
+            </div>
+          </div>
+        </div>
+
+        <!-- Other Personal Details -->
+        <div class="info-section">
+          <h4>Personal Details</h4>
+          <p><strong>Date of Birth:</strong> {{ additionalInfo.DateOfBirth }}</p>
+          <p><strong>Marital Status:</strong> {{ additionalInfo.MaritalStatus }}</p>
+          <p><strong>Nationality:</strong> {{ additionalInfo.Nationality }}</p>
+          <p><strong>Religion:</strong> {{ additionalInfo.Religion }}</p>
+          <p><strong>Passport:</strong> {{ additionalInfo.Passport }}</p>
+          <p><strong>Gender:</strong> {{ additionalInfo.Gender }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</section>

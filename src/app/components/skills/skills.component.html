@@ -1,0 +1,16 @@
+<section id="skills" [@zoomOnHover]="hoverState"
+  (mouseenter)="hoverState='hover'"
+  (mouseleave)="hoverState='normal'"
+   *ngIf="skills.length > 0">
+  <mat-expansion-panel [expanded]="isExpanded"  class="skills-panel">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Skills</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="skills-container">
+      <div class="skill-box" *ngFor="let skill of skills">
+        {{ skill }}
+      </div>
+    </div>
+  </mat-expansion-panel>
+</section>

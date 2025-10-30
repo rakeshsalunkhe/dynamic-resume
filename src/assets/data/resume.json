@@ -1,0 +1,221 @@
+{
+  "Resume": {
+    "BasicPersonalInformation": {
+      "Name": "Rakesh Hiraman Salunkhe",
+      "Phone": "7709510747",
+      "Email": "salunkherakesh19@gmail.com",
+      "ResumeHeadline": "Senior Software Engineer With 5 Years Of Experience",
+      "LinkedIn": "https://www.linkedin.com/in/rakesh-salunkhe-b17a2b156"
+    },
+    "Objective": "Seeking a challenging and progressive career using my professional skills and creative thinking to gain future exposure, strengths and experiences.",
+    "Skills": [
+      "Dotnet Core",
+      "Asp.Net",
+      "Dotnet Core WebAPI",
+      "C#",
+      "Dotnet Framework",
+      "XUnit",
+      "MVC",
+      "OOP",
+      "Javascript",
+      "jQuery",
+      "MySQL",
+      "SqlServer",
+      "Entity Framework",
+      "ADO.Net",
+      "Git",
+      "Agile Methodology",
+      "Angular",
+      "Jasmine",
+      "Unit Testing",
+      "Karma",
+      "Test Driven Development",
+      "NUnit",
+      "Azure CI/CD",
+      "Azure Blob Storage",
+      "Azure Function",
+      "Azure Data Lake",
+      "Azure Identity",
+      "Azure OpenAI",
+      "Azure App Service",
+      "Azure API Management",
+      "Azure Container Registry",
+      "Application Insights"
+    ],
+    "Experience": [
+      {
+        "Organisation": "Mobilution IT Services",
+        "Designation": "Senior Software Engineer",
+        "StartDate": "10/2024",
+        "EndDate": "09/2025",
+        "Responsibilities": [
+          "Worked closely with client and team to deliver solutions as per requirements.",
+          "Followed Agile Methodology and coding standards.",
+          "Performed unit testing, code review, and documentation."
+        ]
+      },
+      {
+        "Organisation": "Devon",
+        "Designation": "Senior Principal Development Specialist",
+        "StartDate": "12/2022",
+        "EndDate": "11/2023",
+        "Responsibilities": [
+          "Developed end-to-end intelligent solutions for complex business requirements.",
+          "Wrote test cases to ensure product performance.",
+          "Maintained product release documentation."
+        ]
+      },
+      {
+        "Organisation": "UST Blueconch",
+        "Designation": "Software Developer",
+        "StartDate": "03/2022",
+        "EndDate": "11/2022",
+        "Responsibilities": [
+          "Developed solutions across varied business requirements using latest technologies."
+        ]
+      },
+      {
+        "Organisation": "IKS Health",
+        "Designation": "Software Developer",
+        "StartDate": "11/2019",
+        "EndDate": "03/2022",
+        "Responsibilities": [
+          "Handled healthcare applications with large datasets.",
+          "Derived insights to assist operations teams."
+        ]
+      }
+    ],
+    "Projects": [
+      {
+        "Name": "Admin Portal",
+        "Role": "Senior Developer (Unit Testing)",
+        "Duration": "1 Month",
+        "TeamSize": 4,
+        "Description": "Internal application developed for IndusInd Bank; added unit tests for existing applications.",
+        "Technology": ["Dotnet 8.0", "XUnit"]
+      },
+      {
+        "Name": "Remittance",
+        "Role": "Senior Developer (Unit Testing)",
+        "Duration": "1 Month",
+        "TeamSize": 4,
+        "Description": "Banking application used by IndusInd Bank; added unit tests for existing app.",
+        "Technology": ["Dotnet 4.8", "XUnit"]
+      },
+      {
+        "Name": "Wrapper Portal",
+        "Role": "Senior Developer (Unit Testing)",
+        "Duration": "1 Month",
+        "TeamSize": 3,
+        "Description": "Banking app for IndusInd Bank; implemented unit tests.",
+        "Technology": ["Angular 15", "Jasmine"]
+      },
+      {
+        "Name": "IndusDirect API",
+        "Role": "Senior Developer (Unit Testing)",
+        "Duration": "5 Months",
+        "TeamSize": 5,
+        "Description": "REST API built using dotnet core 8.0 with unit testing via XUnit.",
+        "Technology": ["Dotnet Core 8.0", "XUnit"]
+      },
+      {
+        "Name": "IndusDirect Web",
+        "Role": "Senior Developer (Unit Testing)",
+        "Duration": "4 Months",
+        "TeamSize": 5,
+        "Description": "Frontend web app for IndusInd Bank built in Angular; unit tests with Jasmine.",
+        "Technology": ["Angular 15", "Jasmine"]
+      },
+      {
+        "Name": "Chatbot (OpenAI GPT Bot)",
+        "Role": "Senior Developer",
+        "Duration": "3 Months",
+        "TeamSize": 8,
+        "Description": "Chatbot built using Dotnet Core and Azure OpenAI for intelligent responses.",
+        "Technology": ["Dotnet 5", "Dotnet Core API", "Azure Function", "Azure OpenAI", "Azure Blob Storage", "Docker", "Azure Container Registry", "SqlServer", "XUnit", "TDD"]
+      },
+      {
+        "Name": "GPT Integration",
+        "Role": "Senior Developer",
+        "Duration": "6 Months",
+        "TeamSize": 8,
+        "Description": "Integrated chatbot into existing ASP.Net application using Azure OpenAI.",
+        "Technology": ["Dotnet 5", "Dotnet Framework", "Dotnet Core API", "Azure Function", "Azure OpenAI", "Azure Blob Storage", "Docker", "Azure Container Registry", "SqlServer", "XUnit", "TDD"]
+      },
+      {
+        "Name": "Exact Online (CRM)",
+        "Role": "Senior Developer",
+        "Duration": "8 Months",
+        "Description": "CRM application for global Exact Online users.",
+        "Technology": [".NET 5", "Dotnet Framework", "Dotnet Core API", "Azure Function", "Azure Blob Storage", "SqlServer", "XUnit", "TDD"]
+      },
+      {
+        "Name": "DMDA2.0: Security Issue Fixes (Compliance Issues)",
+        "Role": "Software Developer",
+        "Duration": "6 Months",
+        "TeamSize": 4,
+        "Description": "Resolved critical security issues in Document Management and Abstraction system.",
+        "Technology": ["Dotnet Core 3.1", "MVC", "WebAPI", "jQuery"]
+      },
+      {
+        "Name": "Scribble Application",
+        "Role": "Software Developer",
+        "Duration": "10 Months",
+        "TeamSize": 7,
+        "Description": "Web app for chart note management with smart note features and audio streaming.",
+        "Technology": ["Dotnet Core 3.1", "MVC", "WebAPI", "Kafka", "Azure Data Lake", "Azure Key Vault", "Docker", "Azure Container Registry", "HTML", "CSS", "Javascript", "Bootstrap", "Ajax", "jQuery", "MSTest", "MySQL"]
+      },
+      {
+        "Name": "Scribble Redox: EHR Integration",
+        "Role": "Software Developer",
+        "Duration": "6 Months",
+        "TeamSize": 7,
+        "Description": "Integrated Scribble product with Redox EHR API using Google Pub-Sub model.",
+        "Technology": ["Dotnet Core 3.1", "WebAPI", "Kafka", "Azure Data Lake", "Azure Key Vault", "HTML", "CSS", "Javascript", "Bootstrap", "Ajax", "jQuery", "MSTest", "MySQL"]
+      },
+      {
+        "Name": "Sync Scribble",
+        "Role": "Software Developer",
+        "Duration": "8 Months",
+        "TeamSize": 7,
+        "Description": "Workflow management app for operations teams with real-time communication.",
+        "Technology": ["Dotnet Core 3.1", "MVC", "WebAPI", "Kafka", "Azure Data Lake", "Azure Key Vault", "HTML", "CSS", "Javascript", "Bootstrap", "Ajax", "jQuery", "MSTest", "MySQL", "TDD"]
+      }
+    ],
+    "Education": [
+      {
+        "Degree": "Post Graduate Diploma In Advance Computing",
+        "University": "CDAC - Mumbai",
+        "Percentage": "66.70%",
+        "YearOfPassing": "2019"
+      },
+      {
+        "Degree": "B.E. (Computer Science)",
+        "University": "Pune University",
+        "Percentage": "64.60%",
+        "YearOfPassing": "2018"
+      },
+      {
+        "Degree": "Diploma In Computer Engineering",
+        "University": "MSBTE",
+        "Percentage": "67.10%",
+        "YearOfPassing": "2014"
+      }
+    ],
+    "additionalInfo": {
+      "Address": "At Don digar, Post Bilakhed, Ta Chalisgaon, DIST: Jalgaon, Maharashtra - 424116",
+      "Languages": [
+        "English",
+        "Hindi",
+        "Marathi"
+      ],
+      "DateOfBirth": "27/08/1993",
+      "MaritalStatus": "Married",
+      "Nationality": "Indian",
+      "Religion": "Hindu",
+      "Passport": "Yes",
+      "Gender": "Male"
+    },
+    "Declaration": "I Rakesh Hiraman Salunkhe, hereby declare that all the above information is true to best of my knowledge."
+  }
+}

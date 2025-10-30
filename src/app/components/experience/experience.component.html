@@ -1,0 +1,36 @@
+<section id="experience" [@zoomOnHover]="hoverState"
+  (mouseenter)="hoverState='hover'"
+  (mouseleave)="hoverState='normal'" *ngIf="experiences.length > 0">
+  <mat-expansion-panel [expanded]="isExpanded"  class="experience-wrapper">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Experience</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <mat-card class="experience-card">
+      <mat-card-content>
+        <mat-accordion multi>
+          <mat-expansion-panel [expanded]="isExpanded" 
+            class="experience-panel"
+            *ngFor="let exp of experiences"
+          >
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{ exp.Organisation }}
+              </mat-panel-title>
+              <mat-panel-description>
+                {{ exp.Designation }} ({{ exp.StartDate }} - {{ exp.EndDate }})
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <div class="experience-details">
+              <h4>Responsibilities:</h4>
+              <ul>
+                <li *ngFor="let task of exp.Responsibilities">{{ task }}</li>
+              </ul>
+            </div>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </mat-card-content>
+    </mat-card>
+  </mat-expansion-panel>
+</section>

@@ -1,0 +1,72 @@
+<section id="personal" [@fadeInUp]>
+  <mat-card
+    *ngIf="basicInfo"
+    class="info-card"
+    [@zoomOnHover]="hoverState"
+    (mouseenter)="hoverState='hover'"
+    (mouseleave)="hoverState='normal'"
+  >
+    <div class="info-container">
+      <div class="image-wrapper">
+        <img [src]="imagePath" alt="Profile photo" class="profile-img" />
+      </div>
+
+      <div class="info-details">
+        <mat-card-title>{{ basicInfo.Name }}</mat-card-title>
+        <mat-card-subtitle>{{ basicInfo.Designation }}</mat-card-subtitle>
+
+        <!-- PHONE -->
+        <p class="info-line">
+          <mat-icon class="info-icon">phone</mat-icon>
+          <span>{{ basicInfo.Phone }}</span>
+          <button
+            mat-icon-button
+            color="primary"
+            class="copy-btn"
+            (click)="copyToClipboard(basicInfo.Phone, 'phone')"
+            [matTooltip]="'Copy phone number'"
+          >
+            <mat-icon>{{
+              copiedItem === 'phone' ? 'check' : 'content_copy'
+            }}</mat-icon>
+          </button>
+        </p>
+
+        <!-- EMAIL -->
+        <p class="info-line">
+          <mat-icon class="info-icon">email</mat-icon>
+          <a
+            [href]="'mailto:' + basicInfo.Email"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ basicInfo.Email }}
+          </a>
+          <button
+            mat-icon-button
+            color="primary"
+            class="copy-btn"
+            (click)="copyToClipboard(basicInfo.Email, 'email')"
+            [matTooltip]="'Copy email address'"
+          >
+            <mat-icon>{{
+              copiedItem === 'email' ? 'check' : 'content_copy'
+            }}</mat-icon>
+          </button>
+        </p>
+
+        <!-- LINKEDIN -->
+        <p class="info-line" *ngIf="basicInfo.LinkedIn">
+          <mat-icon class="info-icon">link</mat-icon>
+          <a
+            [href]="basicInfo.LinkedIn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ basicInfo.LinkedIn }}
+          </a>
+        </p>
+      </div>
+    </div>
+  </mat-card>
+</section>
